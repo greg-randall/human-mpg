@@ -1,26 +1,40 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <title>Human MPG</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>HumanMPG</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="custom.css">
   </head>
-<body>
 
+  <body>
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-3">HumanMPG</h1>
+        <p class="lead">Ever wondered how much gasoline it takes you to walk a mile?</p>
+      </div>
+    </div>
+<div class="container">
 <form action="calculate.php">
-  Age:<br>
-  <input type="text" name="age">
+  Age: <input type="text" name="age">
   <br>
-  Weight (pounds):<br>
-  <input type="text" name="weight">
+  Weight (pounds): <input type="text" name="weight">
   <br>
-  Height:<br> feet: <input type="text" name="height-f"> inches: <input type="text" name="height-i">
+  Height:<br> Feet: <input type="text" name="height-f"> Inches: <input type="text" name="height-i">
   <br>
-  Sex (f/m):<br>
-  <input type="text" name="sex">
+  Sex: <input type="radio" name="sex" item="radioa" value="female"><label for="radioa">Female</label><input type="radio" name="sex" item="radiob" value="male"><label for="radiob">Male</label>
   <br>
-  Walking Speed (MPH):<br>
-  <input type="text" name="speed">
+  Walking Speed (MPH):<input type="text" name="speed" value="3.1">
+  <br>
+What kind of diet do you have:
+  <input type="radio" name="diet" item="radio1" value="omnivore">
+      <label for="radio1">Omnivore</label>
+      <input type="radio" name="diet" item="radio1" value="vegetarian">
+          <label for="radio1">Vegetarian</label>
   <br>
   <input type="submit" value="Submit">
 </form>
-
-</body>
+</div>
+ </body>
 </html>
