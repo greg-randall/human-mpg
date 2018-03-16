@@ -3,17 +3,59 @@ include ("functions.php");//get_client_ip()
 
 include ("metslookup.php");//mets table for lookup
 
+include ("default-values.php");//defaults for values
 
-//get passed variables:
-$age = (int) $_GET["age"];
+//get passed variables & validate:
+if($_GET["age"] && $_GET["age"]>1 && $_GET["age"]<120){
+  $age = (int) $_GET["age"];
+}else{
+	$age=$d_age;
+}
 
-$height = inchestocm((((float) $_GET["height-f"])*12)+((float) $_GET["height-i"])); //feet *12 plus inches for height in inches
+if($_GET["height-f"] | $_GET["height-i"]){
+  $height = inchestocm((((float) $_GET["height-f"])*12)+((float) $_GET["height-i"])); //feet *12 plus inches for height in inches
+}else{
+	$height=$d_height;
+}
 
-$sex = strtolower(substr(trim(preg_replace("/[^a-zA-Z]+/", "", (string) $_GET["sex"])),0,1));
+if($height<121 | $height>213) { // if height is less than 4 feet or greater than 7 feet
+	$height=$d_height;
+}
 
-$weight = lbstokg((float) $_GET["weight"]); //lbs
+if($_GET["sex"]){
+  $sex = strtolower(trim((string) $_GET["sex"]));
+}else{
+	$sex=$d_sex;
+}
 
-$speed = (float) $_GET["speed"]; //mph
+if($sex!="m" && $sex!="f"){
+
+	$sex=$d_sex;
+}
+
+
+if($_GET["weight"]){
+  $weight = lbstokg((float) $_GET["weight"]); //lbs
+}else{
+	$weight=$d_weight;
+}
+
+if($_GET["speed"]){
+  $speed = (float) $_GET["speed"]; //mph
+}else{
+	$speed=$d_speed;
+}
+
+
+if($_GET["diet"]){
+  $diet = strtolower(trim( (string) $_GET["diet"] ));
+}else{
+	$diet=$d_diet;
+}
+if($diet!="o" && $diet!="v"){
+	$diet=$d_diet;
+}
+
 
 //print passed variables
 echo "<b>Age:</b> ". $age ."<br>\r\n";
@@ -21,13 +63,19 @@ echo "<b>Height: </b>";
 echo displayfeetinches(cmtoinches($height)) ."<br>\r\n";
 echo "<b>Sex:</b> ". $sex ."<br>\r\n";
 echo "<b>Weight:</b> ". kgtolbs($weight) ." lbs<br>\r\n";
-echo "<b>Speed:</b> ". $speed ." mph<br>\r\n<br>\r\n<br>\r\n";
+echo "<b>Speed:</b> ". $speed ." mph<br>\r\n";
+echo "<b>Diet:</b> ". $diet ."<br>\r\n<br>\r\n<br>\r\n";
 
 
 
-//constants
-$fossilratio = 10;
-$gallonofgas = 31520;
+if($diet=="o"){
+		$fossilratio = 10;
+}else if($diet=="v"){
+	$fossilratio = 5;
+}
+
+
+$gallonofgas = 31520;//calories in gallon of gas
 
 
 if($sex == "m"){//if sex is m use the male bmr calculation
