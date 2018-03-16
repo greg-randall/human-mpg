@@ -20,28 +20,28 @@ function get_client_ip() {
 
 function lbstokg($input){
 	$output = $input * 0.453592;
-	return(round($output,2));
+	return(round($output,1));
 }
 function kgtolbs($input){
 	$output = $input * 2.20462;
-	return(round($output,2));
+	return(round($output,1));
 }
 function cmtoinches($input){
 	$output = $input * 0.393701;
-	return(round($output,2));
+	return(round($output,1));
 }
 function inchestocm($input){
 	$output = $input * 2.54;
-	return(round($output,2));
+	return(round($output,1));
 }
 
 function displayfeetinches($input){
 	$feet = (int)($input / 12);
 	$inches = (int) ($input - ($feet * 12));
 	if($inches != 0){
-		echo $feet ."' ". $inches .'"'; 
+		echo $feet ."' ". $inches .'"';
 	}else {
-		echo $feet ."'"; 
+		echo $feet ."'";
 	}
 }
 

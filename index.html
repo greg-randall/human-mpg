@@ -1,40 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>HumanMPG</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="custom.css">
-  </head>
-
-  <body>
-    <div class="jumbotron jumbotron-fluid">
-      <div class="container">
-        <h1 class="display-3">HumanMPG</h1>
-        <p class="lead">Ever wondered how much gasoline it takes you to walk a mile?</p>
-      </div>
-    </div>
-<div class="container">
-<form action="calculate.php">
-  Age: <input type="text" name="age">
-  <br>
-  Weight (pounds): <input type="text" name="weight">
-  <br>
-  Height:<br> Feet: <input type="text" name="height-f"> Inches: <input type="text" name="height-i">
-  <br>
-  Sex: <input type="radio" name="sex" item="radioa" value="female"><label for="radioa">Female</label><input type="radio" name="sex" item="radiob" value="male"><label for="radiob">Male</label>
-  <br>
-  Walking Speed (MPH):<input type="text" name="speed" value="3.1">
-  <br>
-What kind of diet do you have:
-  <input type="radio" name="diet" item="radio1" value="omnivore">
-      <label for="radio1">Omnivore</label>
-      <input type="radio" name="diet" item="radio1" value="vegetarian">
-          <label for="radio1">Vegetarian</label>
-  <br>
-  <input type="submit" value="Submit">
-</form>
-</div>
- </body>
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+	<title>HumanMPG</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="custom.css" rel="stylesheet">
+	<style>
+	div {
+	   /*border: 1px solid #000000;*/
+	}
+.control-label{font-weight: bold;}
+	</style>
+</head>
+<body>
+	<div class="jumbotron jumbotron-fluid">
+		<div class="container">
+			<h1 class="display-3">HumanMPG</h1>
+			<p class="lead">Ever wondered how much gasoline it takes you to walk a mile?</p>
+		</div>
+	</div>
+	<div class="container">
+		<form action="calculate.php" class="form-horizontal">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="form-group">
+						<label class="control-label" for="Age">Age</label> <input class="form-control input-md" id="Age" name="age" type="text" value="38" required>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="form-group">
+						<label class="control-label" for="weight">Weight (LBS)</label> <input class="form-control input-md" id="weight" name="weight" type="text" value="182" required>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="form-group">
+						<label class="control-label" for="height">Height</label> <br>
+          <input style="width:3em; display:inline;" class="form-control input-sm" id="height-f" name="height-f" type="text" value="5"  required> ' <input style="width:4em; display:inline;" class="form-control input-sm" id="height-i" name="height-i" type="text" value="6" required> "
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="form-group">
+						<label class="control-label" for="speed">Walking Speed (MPH)</label> <input class="form-control input-md" id="speed" name="speed" type="text" value="3.1"  required> <span class="help-block">Average walking speed is 3.1MPH</span>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="form-group">
+						<label class="control-label" for="sex">Sex</label>
+						<div class="radio">
+							<label for="sex-0"><input checked="checked" id="sex-0" name="sex" type="radio" value="Female"> Female</label>
+						</div>
+						<div class="radio">
+							<label for="sex-1"><input id="sex-1" name="sex" type="radio" value="Male"> Male</label>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="form-group">
+						<label class="control-label" for="Diet">Diet</label>
+						<div class="radio">
+							<label for="Diet-0"><input checked="checked" id="Diet-0" name="Diet" type="radio" value="Omnivore"> Omnivore</label>
+						</div>
+						<div class="radio">
+							<label for="Diet-1"><input id="Diet-1" name="Diet" type="radio" value="Vegetarian"> Vegetarian</label>
+						</div>
+					</div>
+				</div>
+			</div><!-- row -->
+			<div class="form-group text-center">
+				<label class="control-label" for="Submit"></label> <button class="btn btn-info" type="submit">Submit</button>
+			</div>
+		</form>
+	</div>
+	<script src="js/bootstrap.min.js">
+	</script>
+	<script src="js/jquery.js">
+	</script>
+</body>
 </html>
