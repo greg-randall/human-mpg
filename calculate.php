@@ -16,12 +16,12 @@ $weight = lbstokg((float) $_GET["weight"]); //lbs
 $speed = (float) $_GET["speed"]; //mph
 
 //print passed variables
-echo "<b>age:</b> ". $age ."<br>\r\n";
-echo "<b>height: </b>";
+echo "<b>Age:</b> ". $age ."<br>\r\n";
+echo "<b>Height: </b>";
 echo displayfeetinches(cmtoinches($height)) ."<br>\r\n";
-echo "<b>sex:</b> ". $sex ."<br>\r\n";
-echo "<b>weight:</b> ". kgtolbs($weight) ." lbs<br>\r\n";
-echo "<b>speed:</b> ". $speed ." mph<br>\r\n<br>\r\n<br>\r\n";
+echo "<b>Sex:</b> ". $sex ."<br>\r\n";
+echo "<b>Weight:</b> ". kgtolbs($weight) ." lbs<br>\r\n";
+echo "<b>Speed:</b> ". $speed ." mph<br>\r\n<br>\r\n<br>\r\n";
 
 
 
@@ -44,8 +44,8 @@ if(($speed<=$metsmax)&&($speed>=$metsmin)){
 	$speed = 3;
 }
 
-echo "<b>basal metabolic rate (bmr):</b> ". round($bmr,2) ."<br>\r\n";
-echo "<b>mets multiplier:</b> ". $mets ."<br>\r\n<br>\r\n";
+echo "<b>Basal Metabolic Rate (bmr):</b> ". round($bmr,2) ."<br>\r\n";
+echo "<b>METS Multiplier:</b> ". $mets ."<br>\r\n<br>\r\n";
 echo "<b>bmr/hour:</b> ". round($bmr/24,2) ."<br>\r\n";
 echo "<b>cals/hour walking:</b> ". round(($bmr/24)*$mets,2) ."<br>\r\n";
 echo "<b>cals/mile:</b> ". round((($bmr/24)*$mets)/$speed,2) ."<br>\r\n";
