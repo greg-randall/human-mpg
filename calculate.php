@@ -1,3 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+	<title>HumanMPG</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="custom.css" rel="stylesheet">
+</head>
+<body>
+	<div class="jumbotron jumbotron-fluid">
+		<div class="container">
+			<h1 class="display-3">HumanMPG</h1>
+			<p class="lead">Ever wondered how much gasoline it takes you to walk a mile?</p>
+		</div>
+	</div>
+	<div class="container">
+
 <?php
 include ("functions.php");
 
@@ -68,27 +86,27 @@ if($diet!="o" && $diet!="v"){
 }
 
 
-//print passed variables
-echo "<b>Age:</b> ". $age ."<br>\r\n";
-echo "<b>Height: </b>";
-echo displayfeetinches(cmtoinches($height)) ."<br>\r\n";
-echo "<b>Sex:</b> ". $sex ."<br>\r\n";
-echo "<b>Weight:</b> ". kgtolbs($weight) ." lbs<br>\r\n";
-echo "<b>Speed:</b> ". $speed ." mph<br>\r\n";
-echo "<b>Diet:</b> ". $diet ."<br>\r\n<br>\r\n<br>\r\n";
+//echo "information you entered:<Br>\r\n";
+//echo "<b>Age:</b> ". $age ."<br>\r\n";
+//echo "<b>Height: </b>";
+//echo displayfeetinches(cmtoinches($height)) ."<br>\r\n";
+//echo "<b>Sex:</b> ". $sex ."<br>\r\n";
+//echo "<b>Weight:</b> ". kgtolbs($weight) ." lbs<br>\r\n";
+//echo "<b>Speed:</b> ". $speed ." mph<br>\r\n";
+//echo "<b>Diet:</b> ". $diet ."<br>\r\n<br>\r\n<br>\r\n";
 
 
 
 if($diet=="o"){//if the person is an ominivore use 10x, if they're a vegetarian, use 5x. if something weird happened use 10x
-		$fossilratio = 10;
+  $fossilratio = 10;
 }else if($diet=="v"){
 	$fossilratio = 5;
 }else{
 	$fossilratio = 10;
 }
 
-
 $gallonofgas = 31520;//calories in gallon of gas
+//echo "Calories in a gallon of gas: ".$gallonofgas ."<br><br><br>\r\n";
 
 /* https://en.wikipedia.org/wiki/Harris%E2%80%93Benedict_equation
 M BMR = (10 * weight in kg) + (6.25 * height in cm) - (5 * age in years) + 5
@@ -100,22 +118,40 @@ if($sex == "m"){//if sex is m use the male bmr calculation
 }
 
 $mets = $metslookup[number_format($speed, 1)];//look up the mets based on the speed
-
-
-echo "<b>Basal Metabolic Rate (bmr):</b> ". round($bmr,2) ."<br>\r\n";
-echo "<b>METS Multiplier:</b> ". $mets ."<br>\r\n<br>\r\n";
-echo "<b>bmr/hour:</b> ". round($bmr/24,2) ."<br>\r\n";
-echo "<b>cals/hour walking:</b> ". round(($bmr/24)*$mets,2) ."<br>\r\n";
-echo "<b>cals/mile:</b> ". round((($bmr/24)*$mets)/$speed,2) ."<br>\r\n";
-echo "<b>fossil cals/mile:</b> ". round(((($bmr/24)*$mets)/$speed)*$fossilratio,2) ."<br>\r\n";
 $humanmpg = round($gallonofgas/(((($bmr/24)*$mets)/$speed)*$fossilratio),2);
-echo "<h2>Human Mpg:</h2><br>\r\n";
-echo "<h1>" . $humanmpg . "mpg</h1><br>\r\n";
+
+
+if($fossilratio ==10){
+  $diet_text="omnivores";
+}else{
+  $diet_text="vegetarians";
+}
+
+echo "<p>At rest over 24 hours your body uses about ".round($bmr,0)." <a href=\"https://en.wikipedia.org/wiki/Food_energy\">calories</a>. So every hour you use about ". round($bmr/24,0) ." calories. It takes ".$mets." times your base calories to walk at $speed MPH for an hour. So every hour you walk you use about ".round(($bmr/24)*$mets,0) ." calories. For $diet_text it takes $fossilratio calories of fossil fuels to create every calorie you eat. ";
+
+//echo "<b>Basal Metabolic Rate (bmr):</b> ". round($bmr,2) ."<br>\r\n";
+//echo "<b>METS Multiplier (based on walking speed):</b> ". $mets ."<br>\r\n<br>\r\n";
+//echo "<b>bmr/hour (ie calories per hour):</b> ". round($bmr/24,2) ."<br>\r\n";
+//echo "<b>cals/hour walking (bmr/hour * mets):</b> ". round(($bmr/24)*$mets,2) ."<br>\r\n";
+//echo "<b>cals/mile:</b> ". round((($bmr/24)*$mets)/$speed,2) ."<br>\r\n";
+//echo "<b>fossil cals/mile:</b> ". round(((($bmr/24)*$mets)/$speed)*$fossilratio,2) ."<br>\r\n";
+
+//echo "<h2>Human Mpg:</h2><br>\r\n";
+//echo "<h1>" . $humanmpg . "mpg</h1><br>\r\n";
 
 
 //record the input for debugging
 date_default_timezone_set("America/Chicago");
 $output = "$age,$height,$sex,$weight,$speed,$mets,$humanmpg," . get_client_ip() . "," . date("Y-m-d") . "," .date("H:i:s") . ",\r\n";
 file_put_contents("record.csv", $output, FILE_APPEND);
-
 ?>
+
+
+
+</div>
+<script src="js/bootstrap.min.js">
+</script>
+<script src="js/jquery.js">
+</script>
+</body>
+</html>
