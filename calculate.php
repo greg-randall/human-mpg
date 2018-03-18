@@ -118,7 +118,6 @@ if($sex == "m"){//if sex is m use the male bmr calculation
 }
 
 $mets = $metslookup[number_format($speed, 1)];//look up the mets based on the speed
-$humanmpg = round($gallonofgas/(((($bmr/24)*$mets)/$speed)*$fossilratio),2);
 
 
 if($fossilratio ==10){
@@ -127,7 +126,15 @@ if($fossilratio ==10){
   $diet_text="vegetarians";
 }
 
-echo "<p>At rest over 24 hours your body uses about ".round($bmr,0)." <a href=\"https://en.wikipedia.org/wiki/Food_energy\">calories</a>. So every hour you use about ". round($bmr/24,0) ." calories. It takes ".$mets." times your base calories to walk at $speed MPH for an hour. So every hour you walk you use about ".round(($bmr/24)*$mets,0) ." calories. For $diet_text it takes $fossilratio calories of fossil fuels to create every calorie you eat. ";
+echo "<p>At rest over 24 hours <a href=\"https://en.wikipedia.org/wiki/Basal_metabolic_rate#BMR_estimation_formulas\">your body uses</a> about ".round($bmr,0)." <a href=\"https://en.wikipedia.org/wiki/Food_energy\">calories</a>.
+So every hour of the day you use about ". round($bmr/24,0) ." calories.
+It takes ".$mets." times your base calories to walk at $speed MPH for an hour.
+So every hour you walk you use about ".round(($bmr/24)*$mets,0) ." calories.
+Which means that for every mile you walk you use about ".round((($bmr/24)*$mets)/$speed,0)." calories.
+For $diet_text it takes $fossilratio calories of fossil fuels to create every calorie you eat.
+So to walk a mile you use ".round(((($bmr/24)*$mets)/$speed)*$fossilratio,0)." fossil fulel calories.
+There are $gallonofgas calories in a gallon of gas.
+So, your miles per gallon of gas is ".round($gallonofgas/(((($bmr/24)*$mets)/$speed)*$fossilratio),1).".";
 
 //echo "<b>Basal Metabolic Rate (bmr):</b> ". round($bmr,2) ."<br>\r\n";
 //echo "<b>METS Multiplier (based on walking speed):</b> ". $mets ."<br>\r\n<br>\r\n";
@@ -135,13 +142,14 @@ echo "<p>At rest over 24 hours your body uses about ".round($bmr,0)." <a href=\"
 //echo "<b>cals/hour walking (bmr/hour * mets):</b> ". round(($bmr/24)*$mets,2) ."<br>\r\n";
 //echo "<b>cals/mile:</b> ". round((($bmr/24)*$mets)/$speed,2) ."<br>\r\n";
 //echo "<b>fossil cals/mile:</b> ". round(((($bmr/24)*$mets)/$speed)*$fossilratio,2) ."<br>\r\n";
-
+//$humanmpg = round($gallonofgas/(((($bmr/24)*$mets)/$speed)*$fossilratio),2);
 //echo "<h2>Human Mpg:</h2><br>\r\n";
 //echo "<h1>" . $humanmpg . "mpg</h1><br>\r\n";
 
 
 //record the input for debugging
 date_default_timezone_set("America/Chicago");
+$humanmpg = round($gallonofgas/(((($bmr/24)*$mets)/$speed)*$fossilratio),2);
 $output = "$age,$height,$sex,$weight,$speed,$mets,$humanmpg," . get_client_ip() . "," . date("Y-m-d") . "," .date("H:i:s") . ",\r\n";
 file_put_contents("record.csv", $output, FILE_APPEND);
 ?>
