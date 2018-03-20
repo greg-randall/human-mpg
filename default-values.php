@@ -5,4 +5,7 @@ $d_height="167.64";//cm
 $d_speed="3.1";//mph
 $d_sex="f";
 $d_diet="o";
+
+$gallonofgas = 31520; //calories in gallon of gas
+
 ?>
