@@ -1,20 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
-	<title>HumanMPG</title>
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link href="custom.css" rel="stylesheet">
-</head>
-<body>
-	<div class="jumbotron jumbotron-fluid">
-		<div class="container">
-			<h1 class="display-3">HumanMPG</h1>
-			<p class="lead">Ever wondered how much gasoline it takes you to walk a mile?</p>
-		</div>
-	</div>
-	<div class="container">
+<?php echo file_get_contents('header.html'); ?>
+
 		<form action="calculate.php" class="form-horizontal">
 			<div class="row">
 				<div class="col-md-4">
@@ -65,10 +50,5 @@
 				<label class="control-label" for="Submit"></label> <button class="btn btn-info" type="submit">Submit</button>
 			</div>
 		</form>
-	</div>
-	<script src="js/bootstrap.min.js">
-	</script>
-	<script src="js/jquery.js">
-	</script>
-</body>
-</html>
+
+<?php echo file_get_contents('footer.html'); ?>
