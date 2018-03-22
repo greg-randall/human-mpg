@@ -88,7 +88,7 @@
 
     $mets = $metslookup[number_format($speed, 1)]; //look up the mets based on the speed
 
-
+echo "<h3>You get " . round($gallonofgas / (((($bmr / 24) * $mets) / $speed) * $fossilratio), 1) . " miles per gallon of gas!</h3><br>";
     echo "<p>
 At rest over 24 hours <a href=\"https://en.wikipedia.org/wiki/Basal_metabolic_rate#BMR_estimation_formulas\">your body uses</a> about " . round($bmr, 0) . " <a href=\"https://en.wikipedia.org/wiki/Food_energy\">calories</a>.
 So every hour of the day you use about " . round($bmr / 24, 0) . " calories.
@@ -119,12 +119,12 @@ So, <strong>your HumanMPG is: " . round($gallonofgas / (((($bmr / 24) * $mets) /
   <li>Is the basal metabloic rate calulation accurate?</li>
   <li>Why is the basal metabolic rate formula gendered?</li>
   <li>How accurate is the 10 (10:1) fossil fuel calories to food calories? How about 5 for vegetarians?</li>
-	  <li>If you only take into account farming the ratio is 3:1. Processing, cooking, transport, packaging, etc make up the rest. https://www.mepartnership.org/counting-calories-in-agriculture/ </li>
-  <li>How much energy is used making cars?</li>
+	  <li><a href="https://www.mepartnership.org/counting-calories-in-agriculture/">If you only take into account farming the ratio is 3:1</a>. Processing, cooking, transport, packaging, etc make up the rest.</li>
+  <li>How much energy is used making cars? How much energy is that per mile of the life of the car?</li>
   <li>Is the METS (Metabolic Equivalent) accurate?</li>
   <li>Does walking decrease the need for healthcare? How calorically valuable is health?</li>
    <li>If you live longer because you walk more is that better or worse emissions-wise for the world?</li>
-  <li>Does a car produce more pollution per calorie than industrial food?</li>
+  <li>Does a car using fossil fuels produce more pollution per calorie than industrial food/farming per calorie?</li>
   <li>Packaging contributes some fossil fuel calories to food, but it reduces spoilage. Is it better to have more packaging or less?</li>
   <li><a href="https://greentransportation.info/energy-transportation/gasoline-costs-6kwh.html">How much energy does converting crude oil to gasoline take?</a> 6kWh? 6kWh = 5159 calories; should we subtract that from our figure of <?php echo $gallonofgas; ?> calories per gallon of gas?</li>
 </ul>
