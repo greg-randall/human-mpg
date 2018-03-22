@@ -118,14 +118,15 @@ So, <strong>your HumanMPG is: " . round($gallonofgas / (((($bmr / 24) * $mets) /
   <ul>
   <li>Is the basal metabloic rate calulation accurate?</li>
   <li>Why is the basal metabolic rate formula gendered?</li>
-  <li>How accurate is the 10 fossil fuel calories to food calories? How about 5 for vegetarians?</li>
+  <li>How accurate is the 10 (10:1) fossil fuel calories to food calories? How about 5 for vegetarians?</li>
+	  <li>If you only take into account farming the ratio is 3:1. Processing, cooking, transport, packaging, etc make up the rest. https://www.mepartnership.org/counting-calories-in-agriculture/ </li>
   <li>How much energy is used making cars?</li>
   <li>Is the METS (Metabolic Equivalent) accurate?</li>
   <li>Does walking decrease the need for healthcare? How calorically valuable is health?</li>
   <li>Does a car produce more pollution per calorie than industrial food?</li>
   <li>Packaging contributes some fossil fuel calories to food, but it reduces spoilage. Is it better to have more packaging or less?</li>
   <li><a href="https://greentransportation.info/energy-transportation/gasoline-costs-6kwh.html">How much energy does converting crude oil to gasoline take?</a> 6kWh? 6kWh = 5159 calories; should we subtract that from our figure of <?php echo $gallonofgas; ?> calories per gallon of gas??</li>
-  <li></li>
+  <li>https://www.mepartnership.org/counting-calories-in-agriculture/</li>
   <li></li>
   <li></li>
   <li></li>
