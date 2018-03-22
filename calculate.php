@@ -96,7 +96,7 @@ It takes <a href=\"https://en.wikipedia.org/wiki/Metabolic_equivalent#Epidemiolo
 So every hour you walk you use about " . round(($bmr / 24) * $mets, 0) . " calories.
 Which means that for every mile you walk you use about " . round((($bmr / 24) * $mets) / $speed, 0) . " calories.
 For $diet_text <a href=\"https://blogs.scientificamerican.com/plugged-in/10-calories-in-1-calorie-out-the-energy-we-spend-on-food/\">it takes $fossilratio calories of fossil fuels to create every calorie you eat</a>.
-So to walk a mile you use " . round(((($bmr / 24) * $mets) / $speed) * $fossilratio, 0) . " fossil fulel calories.
+So to walk a mile you use " . round(((($bmr / 24) * $mets) / $speed) * $fossilratio, 0) . " fossil fuel calories.
 There are $gallonofgas calories in a gallon of gas.
 So, <strong>your HumanMPG is: " . round($gallonofgas / (((($bmr / 24) * $mets) / $speed) * $fossilratio), 1) . "</strong> .</p>";
 
@@ -114,7 +114,7 @@ So, <strong>your HumanMPG is: " . round($gallonofgas / (((($bmr / 24) * $mets) /
 ?>
 <hr>
 <p>
-  There are a lot of assumptions made in this calcuator that probably make these numbers guesses:</p>
+  There are a lot of assumptions made in this calculator that probably make these numbers guesses:</p>
   <ul>
   <li>Is the basal metabolic rate calculation accurate?</li>
   <li>Why is the basal metabolic rate formula gendered?</li>
