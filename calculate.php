@@ -116,7 +116,7 @@ So, <strong>your HumanMPG is: " . round($gallonofgas / (((($bmr / 24) * $mets) /
 <p>
   There are a lot of assumptions made in this calcuator that probably make these numbers guesses:</p>
   <ul>
-  <li>Is the basal metabloic rate calulation accurate?</li>
+  <li>Is the basal metabolic rate calculation accurate?</li>
   <li>Why is the basal metabolic rate formula gendered?</li>
   <li>How accurate is the 10 (10:1) fossil fuel calories to food calories? How about 5 for vegetarians?</li>
 	  <li><a href="https://www.mepartnership.org/counting-calories-in-agriculture/">If you only take into account farming the ratio is 3:1</a>. Processing, cooking, transport, packaging, etc make up the rest.</li>
