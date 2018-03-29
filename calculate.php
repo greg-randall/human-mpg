@@ -98,11 +98,7 @@ Which means that for every mile you walk you use about " . round((($bmr / 24) * 
 For $diet_text <a href=\"https://blogs.scientificamerican.com/plugged-in/10-calories-in-1-calorie-out-the-energy-we-spend-on-food/\">it takes $fossilratio calories of fossil fuels to create every calorie you eat</a>.
 So to walk a mile you use " . round(((($bmr / 24) * $mets) / $speed) * $fossilratio, 0) . " fossil fuel calories.
 There are $gallonofgas calories in a gallon of gas.
-So, <strong>your HumanMPG is: " . round($gallonofgas / (((($bmr / 24) * $mets) / $speed) * $fossilratio), 1) . "</strong> .</p>";
-
-
-
-  //echo "<h3>".round($gallonofgas/(((($bmr/24)*$mets)/$speed)*$fossilratio),2)."</h3>";
+So, <strong>your HumanMPG is: " . round($gallonofgas / (((($bmr / 24) * $mets) / $speed) * $fossilratio), 1) . "</strong>.</p>";
 
 
 
@@ -111,20 +107,21 @@ So, <strong>your HumanMPG is: " . round($gallonofgas / (((($bmr / 24) * $mets) /
     $humanmpg = round($gallonofgas / (((($bmr / 24) * $mets) / $speed) * $fossilratio), 2);
     $output   = "$age,$height,$sex,$weight,$speed,$mets,$humanmpg," . get_client_ip() . "," . date("Y-m-d") . "," . date("H:i:s") . ",\r\n";
     file_put_contents("record.csv", $output, FILE_APPEND);
+
 ?>
+<div class="row justify-content-center"><div class="col-xs-12"><a class="btn btn-info" href="http://humanmpg.com/" role="button">Find the HumanMPG for someone else!</a></div></div>
 <hr>
 <p>
   There are a lot of assumptions made in this calculator that probably make these numbers guesses:</p>
   <ul>
-  <li>Is the basal metabolic rate calculation accurate?</li>
-  <li>Why is the basal metabolic rate formula gendered?</li>
   <li>How accurate is the 10 (10:1) fossil fuel calories to food calories? How about 5 for vegetarians?</li>
-	  <li><a href="https://www.mepartnership.org/counting-calories-in-agriculture/">If you only take into account farming the ratio is 3:1</a>. Processing, cooking, transport, packaging, etc make up the rest.</li>
+	<li><a href="https://www.mepartnership.org/counting-calories-in-agriculture/">If you only take into account farming the ratio is 3:1</a>. Processing, cooking, transport, packaging, etc make up the rest. How should we account for people who eat packaged meals vs freshly cooked food?</li>
   <li>How much energy is used making cars? How much energy is that per mile of the life of the car?</li>
-  <li>Is the METS (Metabolic Equivalent) accurate?</li>
+  <li>Is <a href="https://onlinelibrary.wiley.com/doi/pdf/10.1002/clc.4960130809">Metabolic Equivalent</a> accurate?</li>
+  <li>Is the basal metabolic rate calculation accurate? Should it be gendered?</li>
   <li>Does walking decrease the need for healthcare? How calorically valuable is health?</li>
-   <li>If you live longer because you walk more is that better or worse emissions-wise for the world?</li>
-  <li>Does a car using fossil fuels produce more pollution per calorie than industrial food/farming per calorie?</li>
+  <li>If you live longer because you walk more is that better or worse emissions-wise for the world?</li>
+  <li>Is a car's consumption of a calorie more or less polluting than than a calorie produced for people?</li>
   <li>Packaging contributes some fossil fuel calories to food, but it reduces spoilage. Is it better to have more packaging or less?</li>
   <li><a href="https://greentransportation.info/energy-transportation/gasoline-costs-6kwh.html">How much energy does converting crude oil to gasoline take?</a> 6kWh? 6kWh = 5159 calories; should we subtract that from our figure of <?php echo $gallonofgas; ?> calories per gallon of gas?</li>
 </ul>
