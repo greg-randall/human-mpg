@@ -90,15 +90,15 @@
 
 echo "<h3>You get " . round($gallonofgas / (((($bmr / 24) * $mets) / $speed) * $fossilratio), 1) . " miles per gallon of gas!</h3><br>";
     echo "<p>
-At rest over 24 hours <a href=\"https://en.wikipedia.org/wiki/Basal_metabolic_rate#BMR_estimation_formulas\">your body uses</a> about " . round($bmr, 0) . " <a href=\"https://en.wikipedia.org/wiki/Food_energy\">calories</a>.
+At rest over 24 hours, <a href=\"https://en.wikipedia.org/wiki/Basal_metabolic_rate#BMR_estimation_formulas\">your body uses</a> about " . round($bmr, 0) . " <a href=\"https://en.wikipedia.org/wiki/Food_energy\">calories</a>.
 Every hour of the day you use about " . round($bmr / 24, 0) . " calories.
 It takes <a href=\"https://en.wikipedia.org/wiki/Metabolic_equivalent#Epidemiology_and_public_health\">" . round($mets,1) . " times your resting calorie rate</a> to walk at ".$speed."MPH;
 so, every hour you walk you use about " . round(($bmr / 24) * $mets, 0) . " calories.
 Which means that for every mile you walk you use about " . round((($bmr / 24) * $mets) / $speed, 0) . " calories.
-For $diet_text <a href=\"https://blogs.scientificamerican.com/plugged-in/10-calories-in-1-calorie-out-the-energy-we-spend-on-food/\">it takes $fossilratio calories of fossil fuels to create every calorie you eat</a>.
+For $diet_text, <a href=\"https://blogs.scientificamerican.com/plugged-in/10-calories-in-1-calorie-out-the-energy-we-spend-on-food/\">it takes $fossilratio calories of fossil fuels to create every calorie you eat</a>.
 So to walk a mile you use " . round(((($bmr / 24) * $mets) / $speed) * $fossilratio, 0) . " fossil fuel calories.
 There are $gallonofgas calories in a gallon of gas.
-So, <strong>your HumanMPG is: " . round($gallonofgas / (((($bmr / 24) * $mets) / $speed) * $fossilratio), 1) . "</strong>.</p>";
+So, <strong>your HumanMPG is " . round($gallonofgas / (((($bmr / 24) * $mets) / $speed) * $fossilratio), 1) . "</strong>.</p>";
 
 
 
@@ -114,13 +114,12 @@ So, <strong>your HumanMPG is: " . round($gallonofgas / (((($bmr / 24) * $mets) /
 <p>
   There are a lot of assumptions made in this calculator that probably make these numbers guesses:</p>
   <ul>
-  <li>How accurate is the 10 (10:1) fossil fuel calories to food calories? How about 5 for vegetarians?</li>
+  <li>How <a href="http://css.umich.edu/sites/default/files/css_doc/CSS00-04.pdf">accurate is the 10:1 fossil fuel calories to food calories</a>? How about 5 for vegetarians?</li>
 	<li><a href="https://www.mepartnership.org/counting-calories-in-agriculture/">If you only take into account farming the ratio is 3:1</a>. Processing, cooking, transport, packaging, etc make up the rest. How should we account for people who eat packaged meals vs freshly cooked food?</li>
   <li>How much energy is used making cars? How much energy is that per mile of the life of the car?</li>
   <li>Is <a href="https://onlinelibrary.wiley.com/doi/pdf/10.1002/clc.4960130809">Metabolic Equivalent</a> accurate?</li>
   <li>Is the <a href="https://en.wikipedia.org/wiki/Harris%E2%80%93Benedict_equation">basal metabolic rate (BMR) calculation</a> accurate? Should it be gendered? What age and weight ranges is the BMR formula valid for?</li>
   <li>Does walking decrease the need for healthcare? How calorically valuable is health?</li>
-  <li>If you live longer because you walk more is that better or worse emissions-wise for the world?</li>
   <li>Is a car's consumption of a calorie more or less polluting than than a calorie produced for people?</li>
   <li>Packaging contributes some fossil fuel calories to food, but it reduces spoilage. Is it better to have more packaging or less?</li>
   <li><a href="https://greentransportation.info/energy-transportation/gasoline-costs-6kwh.html">How much energy does converting crude oil to gasoline take?</a> 6kWh? 6kWh = 5159 calories; should we subtract that from our figure of <?php echo $gallonofgas; ?> calories per gallon of gas?</li>

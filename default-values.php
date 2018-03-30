@@ -6,6 +6,6 @@ $d_speed="3.1";//mph
 $d_sex="f";
 $d_diet="o";
 
-$gallonofgas = 31520; //calories in gallon of gas
+$gallonofgas = 30400; //calories in gallon of gas
 
 ?>
