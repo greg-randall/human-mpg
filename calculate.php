@@ -133,9 +133,9 @@ echo "<p>Your MPG is $better_worse than the <a href=\"https://www.reuters.com/ar
   <li>Is <a href="https://onlinelibrary.wiley.com/doi/pdf/10.1002/clc.4960130809">Metabolic Equivalent</a> accurate?</li>
   <li>Is the <a href="https://en.wikipedia.org/wiki/Harris%E2%80%93Benedict_equation">basal metabolic rate (BMR) calculation</a> accurate? Should it be gendered? What age and weight ranges is the BMR formula valid for?</li>
   <li>Does walking decrease the need for healthcare? How calorically valuable is health?</li>
-  <li>Is a car's consumption of a calorie more or less polluting than than a calorie produced for people?</li>
+  <li>Is a car's consumption of a calorie more or less polluting than a calorie produced for people?</li>
   <li>Packaging contributes some fossil fuel calories to food, but it reduces spoilage. Is it better to have more packaging or less?</li>
-  <li><a href="https://greentransportation.info/energy-transportation/gasoline-costs-6kwh.html">How much energy does converting crude oil to gasoline take?</a> 6kWh? 6kWh = 5159 calories; should we subtract that from our figure of <?php echo $gallonofgas; ?> calories per gallon of gas?</li>
+  <li><a href="https://greentransportation.info/energy-transportation/gasoline-costs-6kwh.html">How much energy does converting crude oil into gasoline take?</a> 6kWh? 6kWh = 5159 calories; should we subtract that from our figure of <?php echo $gallonofgas; ?> calories per gallon of gas?</li>
 </ul>
 
 <?php echo file_get_contents('footer.html'); ?>
