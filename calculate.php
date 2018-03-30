@@ -88,7 +88,9 @@
 
     $mets = $metslookup[number_format($speed, 1)]; //look up the mets based on the speed
 
-echo "<h3>You get " . round($gallonofgas / (((($bmr / 24) * $mets) / $speed) * $fossilratio), 1) . " miles per gallon of gas!</h3><br>";
+$humanmpg = round($gallonofgas / (((($bmr / 24) * $mets) / $speed) * $fossilratio), 1);
+
+echo "<h3>You get " . $humanmpg . " miles per gallon of gas!</h3><br>";
     echo "<p>
 At rest over 24 hours, <a href=\"https://en.wikipedia.org/wiki/Basal_metabolic_rate#BMR_estimation_formulas\">your body uses</a> about " . round($bmr, 0) . " <a href=\"https://en.wikipedia.org/wiki/Food_energy\">calories</a>.
 Every hour of the day you use about " . round($bmr / 24, 0) . " calories.
@@ -98,24 +100,35 @@ Which means that for every mile you walk you use about " . round((($bmr / 24) * 
 For $diet_text, <a href=\"https://blogs.scientificamerican.com/plugged-in/10-calories-in-1-calorie-out-the-energy-we-spend-on-food/\">it takes $fossilratio calories of fossil fuel to create every calorie you eat</a>.
 So to walk a mile you use " . round(((($bmr / 24) * $mets) / $speed) * $fossilratio, 0) . " fossil fuel calories.
 There are $gallonofgas calories in a gallon of gas.
-So, <strong>your HumanMPG is " . round($gallonofgas / (((($bmr / 24) * $mets) / $speed) * $fossilratio), 1) . "</strong>.</p>";
+So, <strong>your HumanMPG is " . $humanmpg . "</strong>.</p>";
 
+
+if($humanmpg>$fuel_effiecnty_2016){
+  $better_worse = "better";
+  $drive_walk = "walk";
+}else{
+    $better_worse = "worse";
+    $drive_walk = "drive";
+}
+echo "<p>Your MPG is $better_worse than the <a href=\"https://www.reuters.com/article/us-autos-emissions/u-s-vehicle-fuel-economy-rises-to-record-24-7-mpg-epa-idUSKBN1F02BX\">average car from 2016 which gets ".$fuel_effiecnty_2016."MPG</a>; so <strong>it's probably better for the environment for you to $drive_walk</strong>.</p>";
 
 
     //record the input for debugging
     date_default_timezone_set("America/Chicago");
-    $humanmpg = round($gallonofgas / (((($bmr / 24) * $mets) / $speed) * $fossilratio), 2);
     $output   = "$age,$height,$sex,$weight,$speed,$mets,$humanmpg," . get_client_ip() . "," . date("Y-m-d") . "," . date("H:i:s") . ",\r\n";
     file_put_contents("record.csv", $output, FILE_APPEND);
 
 ?>
 <div class="row justify-content-center" ><div class="col-xs-12"><a class="btn btn-info" href="http://humanmpg.com/" role="button">Find the HumanMPG for someone else!</a></div></div>
+
+
+
 <hr style="margin-top:25px;margin-bottom:15px;">
 <p>
   There are a lot of assumptions made in this calculator that probably make these numbers guesses:</p>
   <ul>
-  <li>How <a href="http://css.umich.edu/sites/default/files/css_doc/CSS00-04.pdf">accurate is the 10:1 fossil fuel calories to food calories</a>? How about 5 for vegetarians?</li>
-	<li><a href="https://www.mepartnership.org/counting-calories-in-agriculture/">If you only take into account farming the ratio is 3:1</a>. Processing, cooking, transport, packaging, etc make up the rest. How should we account for people who eat packaged meals vs freshly cooked food?</li>
+  <li>How <a href="http://css.umich.edu/sites/default/files/css_doc/CSS00-04.pdf">accurate is the 10:1 fossil fuel calories to food calories</a>? How about 5:1 for vegetarians?</li>
+	<li><a href="https://www.mepartnership.org/counting-calories-in-agriculture/">If you only take into account farming the ratio is 3:1</a>. Processing, cooking, transport, packaging, etc make up the rest. Should we account for that?</li>
   <li>How much energy is used making cars? How much energy is that per mile of the life of the car?</li>
   <li>Is <a href="https://onlinelibrary.wiley.com/doi/pdf/10.1002/clc.4960130809">Metabolic Equivalent</a> accurate?</li>
   <li>Is the <a href="https://en.wikipedia.org/wiki/Harris%E2%80%93Benedict_equation">basal metabolic rate (BMR) calculation</a> accurate? Should it be gendered? What age and weight ranges is the BMR formula valid for?</li>
