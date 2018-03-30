@@ -92,7 +92,7 @@ echo "<h3>You get " . round($gallonofgas / (((($bmr / 24) * $mets) / $speed) * $
     echo "<p>
 At rest over 24 hours <a href=\"https://en.wikipedia.org/wiki/Basal_metabolic_rate#BMR_estimation_formulas\">your body uses</a> about " . round($bmr, 0) . " <a href=\"https://en.wikipedia.org/wiki/Food_energy\">calories</a>.
 Every hour of the day you use about " . round($bmr / 24, 0) . " calories.
-It takes <a href=\"https://en.wikipedia.org/wiki/Metabolic_equivalent#Epidemiology_and_public_health\">" . $mets . " times your resting calorie rate</a> to walk at ".$speed."MPH;
+It takes <a href=\"https://en.wikipedia.org/wiki/Metabolic_equivalent#Epidemiology_and_public_health\">" . round($mets,1) . " times your resting calorie rate</a> to walk at ".$speed."MPH;
 so, every hour you walk you use about " . round(($bmr / 24) * $mets, 0) . " calories.
 Which means that for every mile you walk you use about " . round((($bmr / 24) * $mets) / $speed, 0) . " calories.
 For $diet_text <a href=\"https://blogs.scientificamerican.com/plugged-in/10-calories-in-1-calorie-out-the-energy-we-spend-on-food/\">it takes $fossilratio calories of fossil fuels to create every calorie you eat</a>.
