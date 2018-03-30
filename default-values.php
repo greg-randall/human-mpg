@@ -8,4 +8,5 @@ $d_diet="o";
 
 $gallonofgas = 30400; //calories in gallon of gas
 
+$fuel_effiecnty_2016=24.7; //https://www.reuters.com/article/us-autos-emissions/u-s-vehicle-fuel-economy-rises-to-record-24-7-mpg-epa-idUSKBN1F02BX
 ?>
