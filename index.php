@@ -4,23 +4,23 @@
 			<div class="row">
 				<div class="col-md-4">
 					<div class="form-group">
-						<label class="control-label" for="Age">Age</label> <input class="form-control input-md" id="Age" name="age" type="text" value="38" required>
+						<label class="control-label" for="Age">Age</label> <input type="tel" class="form-control input-md" id="Age" name="age" type="text" value="38" required>
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="form-group">
-						<label class="control-label" for="weight">Weight (LBS)</label> <input class="form-control input-md" id="weight" name="weight" type="text" value="182" required>
+						<label class="control-label" for="weight">Weight (LBS)</label> <input type="tel" class="form-control input-md" id="weight" name="weight" type="text" value="182" required>
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="form-group">
 						<label class="control-label" for="height">Height</label> <br>
-          <input style="width:3em; display:inline;" class="form-control input-sm" id="height-f" name="height-f" type="text" value="5"  required> ' <input style="width:4em; display:inline;" class="form-control input-sm" id="height-i" name="height-i" type="text" value="6" required> "
+          <input type="tel" style="width:3em; display:inline;" class="form-control input-sm" id="height-f" name="height-f" type="text" value="5"  required> ' <input type="tel" style="width:4em; display:inline;" class="form-control input-sm" id="height-i" name="height-i" type="text" value="6" required> "
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="form-group">
-						<label class="control-label" for="speed">Walking Speed (MPH)</label> <input class="form-control input-md" id="speed" name="speed" type="text" value="3.1"  required> <span class="help-block">Average walking speed is 3.1MPH</span>
+						<label class="control-label" for="speed">Walking Speed (MPH)</label> <input type="tel" class="form-control input-md" id="speed" name="speed" type="text" value="3.1"  required> <span class="help-block">Average walking speed is 3.1MPH</span>
 					</div>
 				</div>
 				<div class="col-md-4">
