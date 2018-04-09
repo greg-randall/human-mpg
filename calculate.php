@@ -137,5 +137,23 @@ echo "<p>Your MPG is $better_worse than the <a href=\"https://www.reuters.com/ar
   <li>Packaging contributes some fossil fuel calories to food, but it reduces spoilage. Is it better to have more packaging or less?</li>
   <li><a href="https://greentransportation.info/energy-transportation/gasoline-costs-6kwh.html">How much energy does converting crude oil into gasoline take?</a> 6kWh? 6kWh = 5,159 calories; should we subtract that from our figure of <?php echo number_format($gallonofgas); ?> calories per gallon of gas?</li>
 </ul>
+<hr>
 
+<div class="text-center">  `"Gas Kcal"/((((((10*"Weight") + (6.25*"Height") - (5*"Age") + "Sex")/24)*"METS")/"Speed")*"Fossil Ratio")`  </div><br>
+
+  <table style="margin: 0 auto" class="table-striped table-bordered">
+    <tr><th>Formula</th><th>Item</th><th>Value</th></tr>
+    <tr><td>Gas Kcal</td><td>Kcal per Gallon of Gas</td><td><?php echo number_format($gallonofgas); ?></td></tr>
+    <tr><td>Weight</td><td>Your Weight</td><td><?php echo number_format(kgtolbs($weight)); ?></td></tr>
+    <tr><td>Height</td><td>Your Height</td><td><?php echo displayfeetinches(cmtoinches($height)); ?></td></tr>
+    <tr><td>Age</td><td>Your Age</td><td><?php echo number_format($age); ?></td></tr>
+    <tr><td>Sex</td><td>Your Sex</td><td>female use -161; male use 5</td></tr>
+    <tr><td>METS</td><td>Metabolic Equivalent</td><td><?php echo $mets; ?> (<a href="mets.php">see lookup table</a>)</td></tr>
+    <tr><td>Speed</td><td>Your Speed</td><td><?php echo round($speed,1); ?></td></tr>
+    <tr><td>Fossil Ratio</td><td>Fossil Fuel Ratio</td><td>omnivores use 10; vegetarians use 5</td></tr>
+
+  </table>
+  <br>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS": { scale: 150, linebreaks: { automatic: true } }});</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=AM_HTMLorMML"></script>
 <?php echo file_get_contents('footer.html'); ?>
