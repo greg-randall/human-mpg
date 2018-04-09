@@ -39,9 +39,9 @@ function displayfeetinches($input){
 	$feet = (int)($input / 12);
 	$inches = (int) ($input - ($feet * 12));
 	if($inches != 0){
-		echo $feet ."' ". $inches .'"';
+		return($feet ."' ". $inches .'"');
 	}else {
-		echo $feet ."'";
+		return($feet ."'");
 	}
 }
 
