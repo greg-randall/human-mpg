@@ -124,7 +124,15 @@ echo "<p>Your MPG is $better_worse than the <a href=\"https://www.reuters.com/ar
 ?>
 <div class="row justify-content-center" ><div class="col-xs-12"><a class="btn btn-info" href="http://humanmpg.com/" role="button">Find the HumanMPG for someone else!</a></div></div>
 
-
+<hr style="margin-top:25px;margin-bottom:15px;">
+<p>With this calculator, we're ignoring most of the fossil fuel expenditure involved in making a car, refining fuel, etc. For an average car including these total cost of ownership numbers means that cars use about 20% more fossil fuel per mile than you would otherwise estimate using miles per gallon:
+<ul>
+  <li><a href="https://greet.es.anl.gov/files/vehicle_and_components_manufacturing">A car takes about 8,126,195 calories to build</a>. <a href="https://en.wikipedia.org/wiki/Car_longevity#Statistics">Modern cars last about 200,000 miles</a>. 8,126,195calories / 200,000miles = <strong>41 calories</strong>.</li>
+  <li><a href="https://greentransportation.info/energy-transportation/gasoline-costs-6kwh.html">It's estimated to take 6kWh (<?php echo round(kwhtokcal(6),0); ?> calories) to refine crude oil into a gallon of gasoline</a>. That means for every mile an average car uses an additional <?php echo round(kwhtokcal(6),0); ?> calories / <?php echo $fuel_effiecnty_2016; ?> miles per gallon = <strong>209 calories</strong>.</a></li>
+  <li><a href="http://ridetowork.org/transportation-fact-sheet">The average speed of driving in the US is 32MPH</a>. 60 minutes in an hour / 32 MPH = 1.9 minutes per mile. <a href="https://epi.grants.cancer.gov/atus-met/met.php">It takes about twice your basal metabolic rate to drive</a>. The average person in the US has a basal metabolic rate of about 1605 calories per day. In the time it takes to drive a mile most people burn about (1605BMR *(1.9 minutes/(24 hours * 60 minutes)))*2 = <strong>4.25 calories</strong>.</li>
+</ul>
+<a href=\"https://www.reuters.com/article/us-autos-emissions/u-s-vehicle-fuel-economy-rises-to-record-24-7-mpg-epa-idUSKBN1F02BX\">The average car from 2016 gets <?php echo $fuel_effiecnty_2016; ?> miles per gallon</a>. <?php echo number_format($gallonofgas); ?>calories / <?php echo $fuel_effiecnty_2016; ?>miles per gallon = 1231 calories per mile. Our numbers from above total 41 + 209 + 4.25 = 254 calories. That pushes the car's calories per mile to 1485 or about 21% greater.
+</p>
 
 <hr style="margin-top:25px;margin-bottom:15px;">
 <p>
@@ -138,7 +146,6 @@ echo "<p>Your MPG is $better_worse than the <a href=\"https://www.reuters.com/ar
   <li>Does walking decrease the need for healthcare? How calorically valuable is health?</li>
   <li>Is a car's consumption of a calorie more or less polluting than a calorie produced for people?</li>
   <li>Packaging contributes some fossil fuel calories to food, but it reduces spoilage. Is it better to have more packaging or less?</li>
-  <li><a href="https://greentransportation.info/energy-transportation/gasoline-costs-6kwh.html">How much energy does converting crude oil into gasoline take?</a> 6kWh? 6kWh = 5,159 calories; should we subtract that from our figure of <?php echo number_format($gallonofgas); ?> calories per gallon of gas?</li>
 </ul>
 <hr>
 
