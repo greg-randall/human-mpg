@@ -125,7 +125,7 @@ echo "<p>Your MPG is $better_worse than the <a href=\"https://www.reuters.com/ar
 <div class="row justify-content-center" ><div class="col-xs-12"><a class="btn btn-info" href="http://humanmpg.com/" role="button">Find the HumanMPG for someone else!</a></div></div>
 
 <hr style="margin-top:25px;margin-bottom:15px;">
-<p>With this calculator, we're ignoring most of the fossil fuel expenditure involved in making a car, refining fuel, etc. For an average car including these total cost of ownership numbers means that cars use about 20% more fossil fuel per mile than you would otherwise estimate using miles per gallon:
+<p>With this calculator, we're ignoring the fossil fuel expenditure involved in making a car, refining fuel, and driving the car. For an average car including these total cost of ownership numbers means that cars use about 20% more fossil fuel per mile than you would otherwise estimate using miles per gallon:
 <ul>
   <li><a href="https://greet.es.anl.gov/files/vehicle_and_components_manufacturing">A car takes about 8,126,195 calories to build</a>. <a href="https://en.wikipedia.org/wiki/Car_longevity#Statistics">Modern cars last about 200,000 miles</a>. 8,126,195calories / 200,000miles = <strong>41 calories</strong>.</li>
   <li><a href="https://greentransportation.info/energy-transportation/gasoline-costs-6kwh.html">It's estimated to take 6kWh (<?php echo round(kwhtokcal(6),0); ?> calories) to refine crude oil into a gallon of gasoline</a>. That means for every mile an average car uses an additional <?php echo round(kwhtokcal(6),0); ?> calories / <?php echo $fuel_effiecnty_2016; ?> miles per gallon = <strong>209 calories</strong>.</a></li>
@@ -136,14 +136,15 @@ echo "<p>Your MPG is $better_worse than the <a href=\"https://www.reuters.com/ar
 
 <hr style="margin-top:25px;margin-bottom:15px;">
 <p>
-  There are a lot of assumptions made in this calculator that probably make these numbers guesses:</p>
+  The calculator uses a lot of assumptions about statistically average cars and people. Here are a few things that we should think about:</p>
   <ul>
   <li>How <a href="http://css.umich.edu/sites/default/files/css_doc/CSS00-04.pdf">accurate is the 10:1 fossil fuel calories to food calories</a>? How about 5:1 for vegetarians?</li>
-	<li><a href="https://www.mepartnership.org/counting-calories-in-agriculture/">If you only take into account farming the ratio is 3:1</a>. Processing, cooking, transport, packaging, etc make up the rest. Should we account for that?</li>
-  <li>How much energy is used making cars? How much energy is that per mile of the life of the car?</li>
+  <li>How much energy does it take to make & maintain roads?</li>
+  <li><a href="https://www.mepartnership.org/counting-calories-in-agriculture/">If you only take into account farming the ratio is 3:1</a>. Processing, cooking, transport, packaging, etc make up the rest. Should we account for that?</li>
   <li>Is <a href="https://onlinelibrary.wiley.com/doi/pdf/10.1002/clc.4960130809">Metabolic Equivalent</a> accurate?</li>
-  <li>Is the <a href="https://en.wikipedia.org/wiki/Harris%E2%80%93Benedict_equation">basal metabolic rate (BMR) calculation</a> accurate? Should it be gendered? What age and weight ranges is the BMR formula valid for?</li>
+  <li>How accurate is the <a href="https://en.wikipedia.org/wiki/Harris%E2%80%93Benedict_equation">basal metabolic rate (BMR) calculation</a>? Should it be gendered? What age and weight ranges is the BMR formula valid for?</li>
   <li>Does walking decrease the need for healthcare? How calorically valuable is health?</li>
+  <li><a href="https://www.nytimes.com/2017/02/15/business/highway-traffic-safety.html">Car crashes killed 40,200 people in 2016</a>. If more people walked there would probably be fewer people driving.</li>
   <li>Is a car's consumption of a calorie more or less polluting than a calorie produced for people?</li>
   <li>Packaging contributes some fossil fuel calories to food, but it reduces spoilage. Is it better to have more packaging or less?</li>
 </ul>
