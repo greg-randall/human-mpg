@@ -1,5 +1,5 @@
 <?php
-function get_client_ip() {
+function get_client_ip() { // http://thephpcode.blogspot.com/2009/01/php-getting-secondary-internet-protocol.html
     $ipaddress = '';
     if (getenv('HTTP_CLIENT_IP'))
         $ipaddress = getenv('HTTP_CLIENT_IP');
@@ -20,19 +20,19 @@ function get_client_ip() {
 
 function lbstokg($input){
 	$output = $input * 0.453592;
-	return(round($output,1));
+	return($output);
 }
 function kgtolbs($input){
 	$output = $input * 2.20462;
-	return(round($output,1));
+	return($output);
 }
 function cmtoinches($input){
 	$output = $input * 0.393701;
-	return(round($output,1));
+	return($output);
 }
 function inchestocm($input){
 	$output = $input * 2.54;
-	return(round($output,1));
+	return($output);
 }
 
 function displayfeetinches($input){
