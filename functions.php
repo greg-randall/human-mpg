@@ -34,6 +34,14 @@ function inchestocm($input){
 	$output = $input * 2.54;
 	return($output);
 }
+function kwhtokcal($input){
+  $output = $input * 859.8456;
+  return($output);
+}
+function kcaltokwh($input){
+  $output = $input * 0.0011629995;
+  return($output);
+}
 
 function displayfeetinches($input){
 	$feet = (int)($input / 12);
