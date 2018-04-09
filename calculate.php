@@ -115,7 +115,10 @@ echo "<p>Your MPG is $better_worse than the <a href=\"https://www.reuters.com/ar
 
     //record the input for debugging
     date_default_timezone_set("America/Chicago");
-    $output   = "$age,$height,$sex,$weight,$speed,$mets,$humanmpg," . get_client_ip() . "," . date("Y-m-d") . "," . date("H:i:s") . ",\r\n";
+    $output   = date("Y-m-d") . "," . date("H:i:s") . ",$age,$height,$sex,$weight,$speed,$mets,$humanmpg," . get_client_ip() . "\r\n";
+    if(!file_exists("record.csv")){
+      file_put_contents("record.csv", "date,time,age,height-cm,sex,weight-kg,speed-mph,mets,humanmpg\r\n", FILE_APPEND);
+    }
     file_put_contents("record.csv", $output, FILE_APPEND);
 
 ?>
